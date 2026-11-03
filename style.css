@@ -3,37 +3,73 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8fafc;
   color: #0f172a;
   line-height: 1.6;
-  padding: 2rem;
-  max-width: 800px;
+  padding: 2rem 4rem;
+  max-width: 1200px; /* Increased from 800px for a full desktop layout */
   margin: 0 auto;
 }
+
 header {
   text-align: center;
-  padding: 3rem 0;
+  padding: 4rem 1rem 3rem 1rem;
 }
+
 header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: #2563eb;
+  margin-bottom: 0.5rem;
 }
+
+header p {
+  font-size: 1.25rem;
+  color: #475569;
+}
+
 section {
   background: #ffffff;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: #1e293b;
+  font-size: 1.75rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
 }
+
+/* Arrange projects side-by-side on desktop */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #2563eb;
+}
+
+.card h3 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
 footer {
   text-align: center;
-  margin-top: 3rem;
-  font-size: 0.875rem;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+  font-size: 0.9rem;
   color: #64748b;
 }
