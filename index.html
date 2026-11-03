@@ -3,41 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ibrahim Enock Masanja — Chemist Portfolio</title>
-  <meta name="description" content="Official portfolio website of Ibrahim Enock Masanja, a professional chemist showcasing laboratory competencies, formulations, and analytical projects.">
+  <title>Ibrahim Enock Masanja — Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm Ibrahim Enock Masanja 👋</h1>
-    <p>Professional Chemist & Formulation Specialist</p>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#home" class="active">HOME</a>
+      <a href="#about">ABOUT ME</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#contacts">CONTACTS</a>
+    </div>
+  </nav>
+
+  <!-- HERO / HOME SECTION -->
+  <header id="home" class="hero">
+    <p class="tagline">Explore My Chemistry & Formulations</p>
+    <h1 class="hero-title">Portfolio</h1>
+    <p class="subtitle">Ibrahim Enock Masanja — Professional Chemist & Formulation Specialist</p>
   </header>
 
   <main>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>I am a dedicated chemist specializing in analytical chemistry, industrial manufacturing, and laboratory operations. Welcome to my professional portfolio where I showcase my skills, training, and projects.</p>
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="section-card">
+      <h2>ABOUT ME</h2>
+      <p>I am a dedicated chemist specializing in analytical chemistry, industrial manufacturing, and laboratory operations. I focus on developing high-quality chemical formulations and managing laboratory analysis with precision.</p>
     </section>
 
-    <section class="projects">
-      <h2>Projects & Expertise</h2>
-      <div class="projects-grid">
-        <div class="card">
-          <h3>Laboratory & Analytical Chemistry</h3>
-          <p>Experienced in mineral processing, sample preparation, acid digestion methodologies, and instrumentation calibration.</p>
+    <!-- PRODUCTS & FORMULATIONS SECTION -->
+    <section id="products" class="section-card">
+      <h2>PRODUCTS & EXPERTISE</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <h3>Industrial Liquid Soaps</h3>
+          <p>High-efficiency cleaning solutions formulated to meet consumer safety and performance standards.</p>
         </div>
-        <div class="card">
-          <h3>Formulation Chemistry</h3>
-          <p>Developing industrial cleaning solutions and consumer goods aligned with quality and industry standards.</p>
+        <div class="product-card">
+          <h3>Tile & Surface Cleaners</h3>
+          <p>Effective chemical formulations designed for deep cleaning and surface maintenance.</p>
         </div>
+        <div class="product-card">
+          <h3>Analytical Laboratory Testing</h3>
+          <p>Expertise in mineral processing, sample digestion, qualitative separation, and instrumentation calibration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS SECTION -->
+    <section id="contacts" class="section-card">
+      <h2>CONTACTS</h2>
+      <div class="contact-buttons">
+        <a href="tel:+255000000000" class="contact-btn">
+          <span class="icon">📞</span>
+          <span>+255 000 000 000</span>
+        </a>
+        <a href="mailto:your-email@gmail.com" class="contact-btn">
+          <span class="icon">✉️</span>
+          <span>your-email@gmail.com</span>
+        </a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Ibrahim Enock Masanja. Built with HTML & CSS.</p>
+    <p>© 2026 Ibrahim Enock Masanja. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>

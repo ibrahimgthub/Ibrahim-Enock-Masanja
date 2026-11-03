@@ -4,99 +4,188 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #0b1a10; /* Dark forest green matching reference */
+  color: #e2e8f0;
   line-height: 1.6;
-  padding: 2rem 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding-top: 80px;
 }
 
-header {
+/* TOP NAVIGATION */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 26, 16, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(132, 204, 22, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #a3e635; /* Bright lime accent */
+  border-bottom: 2px solid #a3e635;
+  padding-bottom: 4px;
+}
+
+/* HERO SECTION */
+.hero {
   text-align: center;
-  padding: 4rem 1rem 3rem 1rem;
+  padding: 5rem 1.5rem 3rem 1.5rem;
 }
 
-header h1 {
-  font-size: 2.8rem;
-  color: #2563eb;
+.tagline {
+  color: #e2e8f0;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
   margin-bottom: 0.5rem;
 }
 
-header p {
-  font-size: 1.25rem;
-  color: #475569;
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #a3e635; /* Bold neon lime text */
+  letter-spacing: -1px;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
 }
 
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* MAIN CONTENT SECTIONS */
 main {
-  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-section {
-  background: #ffffff;
-  padding: 2rem;
-  margin: 2rem 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.section-card {
+  background: #12281a;
+  padding: 2.5rem;
+  margin: 3rem 0;
+  border-radius: 16px;
+  border: 1px solid rgba(163, 230, 53, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 h2 {
-  margin-bottom: 1rem;
-  color: #1e293b;
-  font-size: 1.75rem;
-  border-bottom: 2px solid #e2e8f0;
+  color: #a3e635;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(163, 230, 53, 0.2);
   padding-bottom: 0.5rem;
 }
 
-/* Responsive Grid: Side-by-side on desktop, stacks automatically on phones */
-.projects-grid {
+/* PRODUCTS GRID */
+.products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+}
+
+.product-card {
+  background: #1a3824;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #a3e635;
+}
+
+.product-card h3 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.product-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+/* CONTACT BUTTONS */
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
   margin-top: 1rem;
 }
 
-.card {
-  background: #f1f5f9;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #2563eb;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  color: #0b1a10;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.card:hover {
+.contact-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  background: #a3e635;
 }
 
-.card h3 {
-  color: #1e293b;
-  margin-bottom: 0.5rem;
+.contact-btn .icon {
+  background: #a3e635;
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
   text-align: center;
-  margin-top: 4rem;
-  padding-bottom: 2rem;
-  font-size: 0.9rem;
+  padding: 3rem 1rem;
   color: #64748b;
+  font-size: 0.9rem;
 }
 
-/* Mobile Screen Adjustments */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-  body {
-    padding: 1rem;
+  .hero-title {
+    font-size: 3.2rem;
   }
-  header h1 {
-    font-size: 2rem;
+  
+  .nav-links {
+    gap: 1rem;
   }
-  header p {
-    font-size: 1rem;
+  
+  .nav-links a {
+    font-size: 0.8rem;
   }
-  section {
-    padding: 1.25rem;
-    margin: 1rem 0;
+  
+  .section-card {
+    padding: 1.5rem;
   }
 }
