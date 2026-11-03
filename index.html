@@ -3,73 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ibrahim Enock Masanja — Portfolio</title>
+  <title>Ibrahim Enock Masanja — Professional Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
 
-  <!-- NAVIGATION BAR -->
+  <!-- FLOATING NAVBAR -->
   <nav class="navbar">
+    <div class="nav-brand">Ibrahim</div>
     <div class="nav-links">
-      <a href="#home" class="active">HOME</a>
+      <a href="#home">HOME</a>
+      <a href="#work">WORK</a>
+      <a href="#skills">WHAT I CAN DO</a>
       <a href="#about">ABOUT ME</a>
-      <a href="#products">PRODUCTS</a>
       <a href="#contacts">CONTACTS</a>
+    </div>
+    <div class="nav-actions">
+      <button id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
+      <a href="#contacts" class="hire-btn">Hire Me</a>
     </div>
   </nav>
 
-  <!-- HERO / HOME SECTION -->
+  <!-- HERO SECTION -->
   <header id="home" class="hero">
-    <p class="tagline">Explore My Chemistry & Formulations</p>
-    <h1 class="hero-title">Portfolio</h1>
-    <p class="subtitle">Ibrahim Enock Masanja — Professional Chemist & Formulation Specialist</p>
+    <div class="hero-content">
+      <p class="tagline">Explore My Works & Expertise</p>
+      <h1 class="hero-title">Portfolio</h1>
+      <p class="subtitle">Ibrahim Enock Masanja — Chemist & Full-Stack Developer</p>
+    </div>
   </header>
 
   <main>
-    <!-- ABOUT ME SECTION -->
-    <section id="about" class="section-card">
-      <h2>ABOUT ME</h2>
-      <p>I am a dedicated chemist specializing in analytical chemistry, industrial manufacturing, and laboratory operations. I focus on developing high-quality chemical formulations and managing laboratory analysis with precision.</p>
-    </section>
-
-    <!-- PRODUCTS & FORMULATIONS SECTION -->
-    <section id="products" class="section-card">
-      <h2>PRODUCTS & EXPERTISE</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>Industrial Liquid Soaps</h3>
-          <p>High-efficiency cleaning solutions formulated to meet consumer safety and performance standards.</p>
+    <!-- WORK / PRODUCTS GALLERY -->
+    <section id="work" class="section-container">
+      <h2>Selected Work</h2>
+      <p class="section-desc">A collection of chemical formulations, software systems, and digital projects I've built.</p>
+      
+      <div class="work-grid">
+        <div class="work-card">
+          <h3>Industrial Cleaning Formulations</h3>
+          <p>Development of consumer cleaning goods including liquid hand soaps, tile cleaners, and shower gels aligned with quality standards.</p>
         </div>
-        <div class="product-card">
-          <h3>Tile & Surface Cleaners</h3>
-          <p>Effective chemical formulations designed for deep cleaning and surface maintenance.</p>
+        <div class="work-card">
+          <h3>UniShare Knowledge Platform</h3>
+          <p>Cross-platform university student knowledge-sharing app built with Flutter and Firebase storage infrastructure.</p>
         </div>
-        <div class="product-card">
-          <h3>Analytical Laboratory Testing</h3>
-          <p>Expertise in mineral processing, sample digestion, qualitative separation, and instrumentation calibration.</p>
+        <div class="work-card">
+          <h3>MASChat Mobile Application</h3>
+          <p>Real-time chat application featuring status triggers, double-tick delivery indicators, and video conferencing tools.</p>
         </div>
       </div>
     </section>
 
+    <!-- WHAT I CAN DO SECTION -->
+    <section id="skills" class="section-container">
+      <h2>What I Can Do</h2>
+      <p class="section-desc">I combine technical problem-solving in chemistry with modern software engineering and digital skills.</p>
+      
+      <div class="skills-grid-bento">
+        <div class="bento-box">
+          <h3>01. Chemistry & Manufacturing</h3>
+          <p>Analytical laboratory testing, mineral sample preparation, acid digestion, and consumer product formulation.</p>
+        </div>
+        <div class="bento-box">
+          <h3>02. Web & Mobile Development</h3>
+          <p>Building responsive web applications and cross-platform mobile apps using React, Flutter, and Tailwind CSS.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="section-container">
+      <h2>About Me</h2>
+      <div class="about-card">
+        <h3>Ibrahim Victor M. Masanja</h3>
+        <p>I am a dedicated chemist and independent software engineer based in Tanzania. With a strong academic background in analytical chemistry and hands-on laboratory experience from Moya Minerals Laboratory, I bridge the gap between technical science and modern digital applications.</p>
+      </div>
+    </section>
+
     <!-- CONTACTS SECTION -->
-    <section id="contacts" class="section-card">
-      <h2>CONTACTS</h2>
-      <div class="contact-buttons">
-        <a href="tel:+255000000000" class="contact-btn">
-          <span class="icon">📞</span>
-          <span>+255 000 000 000</span>
-        </a>
-        <a href="mailto:your-email@gmail.com" class="contact-btn">
-          <span class="icon">✉️</span>
-          <span>your-email@gmail.com</span>
-        </a>
+    <section id="contacts" class="section-container contact-section">
+      <div class="contact-text">
+        <h2>LET'S WORK TOGETHER</h2>
+        <p>Looking for the next project or collaboration in chemistry, web development, or digital solutions.</p>
+        <a href="mailto:ibrahim@email.com" class="resume-btn">Download Resume</a>
+      </div>
+      
+      <div class="contact-cards-stack">
+        <div class="info-card">
+          <span>📧 Email</span>
+          <strong>ibrahim@email.com</strong>
+        </div>
+        <div class="info-card">
+          <span>🐙 GitHub</span>
+          <strong>github.com/ibrahimgthub</strong>
+        </div>
+        <div class="info-card">
+          <span>💬 WhatsApp / Phone</span>
+          <strong>+255 000 000 000</strong>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Ibrahim Enock Masanja. All rights reserved.</p>
+    <p>© 2026 Ibrahim Enock Masanja. Built with HTML & CSS.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
