@@ -1,126 +1,418 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ibrahim Enock Masanja — Chemist & Developer</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Enock Masanja — Chemist & Developer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff014f',
+                        bodybg: '#ecf0f3',
+                        cardbg: '#e6e9f0',
+                        textdark: '#1e2125',
+                        textgray: '#60646c'
+                    },
+                    boxShadow: {
+                        'neu-flat': '10px 10px 19px #c5c7d0, -10px -10px 19px #ffffff',
+                        'neu-hover': '10px 10px 19px #b3b5bd, -10px -10px 19px #ffffff',
+                        'neu-pressed': 'inset 5px 5px 10px #c5c7d0, inset -5px -5px 10px #ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ecf0f3;
+            color: #3c3e41;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Neumorphism Styles */
+        .neu-btn {
+            background: linear-gradient(145deg, #e6e9f0, #e6e9f0);
+            box-shadow: 10px 10px 19px #c5c7d0, -10px -10px 19px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .neu-btn:hover {
+            background: linear-gradient(145deg, #ff014f, #d10041);
+            color: #ffffff !important;
+            transform: translateY(-3px);
+            box-shadow: 10px 10px 19px #b3b5bd, -10px -10px 19px #ffffff;
+        }
+
+        .neu-card {
+            background: linear-gradient(145deg, #e6e9f0, #e6e9f0);
+            box-shadow: 10px 10px 19px #c5c7d0, -10px -10px 19px #ffffff;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .neu-card:hover {
+            background: linear-gradient(145deg, #ff014f, #d10041);
+            color: #ffffff;
+            transform: translateY(-7px);
+        }
+
+        .neu-card:hover .card-title,
+        .neu-card:hover .card-desc,
+        .neu-card:hover .card-icon {
+            color: #ffffff !important;
+        }
+
+        /* Typing Effect */
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #ff014f;
+            font-weight: 400;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .nav-sticky {
+            background-color: rgba(236, 240, 243, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    </style>
 </head>
-<body class="dark-theme">
+<body class="antialiased">
 
-  <!-- FLOATING NAVBAR WITH GLASS3D -->
-  <nav class="navbar glass3d">
-    <div class="nav-brand">Ibrahim</div>
-    
-    <!-- NAVIGATION LINKS -->
-    <div class="nav-links" id="nav-links">
-      <a href="#home" class="nav-item">HOME</a>
-      <a href="#work" class="nav-item">WORK</a>
-      <a href="#skills" class="nav-item">WHAT I CAN DO</a>
-      <a href="#about" class="nav-item">ABOUT ME</a>
-      <a href="#contacts" class="nav-item">CONTACTS</a>
-    </div>
+    <!-- Header Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 nav-sticky border-b border-gray-200/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Brand -->
+            <div class="flex items-center gap-3 cursor-pointer">
+                <div class="w-11 h-11 rounded-full neu-btn flex items-center justify-center text-primary font-extrabold text-lg">
+                    I
+                </div>
+                <span class="text-xl font-extrabold tracking-wider text-textdark">Ibrahim.dev</span>
+            </div>
 
-    <div class="nav-actions">
-      <button id="theme-toggle" title="Toggle Light/Dark Mode">🌓</button>
-      <a href="#contacts" class="hire-btn">Let's Talk</a>
-      
-      <!-- THREE-DASH HAMBURGER MENU BUTTON -->
-      <button id="menu-btn" class="hamburger" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                <a href="#home" class="text-xs font-semibold uppercase tracking-wider text-primary hover:text-primary transition-colors">HOME</a>
+                <a href="#work" class="text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-primary transition-colors">WORK</a>
+                <a href="#skills" class="text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-primary transition-colors">WHAT I CAN DO</a>
+                <a href="#about" class="text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-primary transition-colors">ABOUT ME</a>
+                <a href="#contacts" class="text-xs font-semibold uppercase tracking-wider text-gray-600 hover:text-primary transition-colors">CONTACTS</a>
+            </nav>
 
-  <!-- HERO SECTION -->
-  <header id="home" class="hero">
-    <div class="hero-content">
-      <p class="tagline">Hey there, I'm Ibrahim 👋</p>
-      <h1 class="hero-title">Portfolio</h1>
-      <p class="subtitle">Bridging industrial chemistry formulations and full-stack software development.</p>
-    </div>
-  </header>
+            <!-- Actions: Hire Me Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#contacts" class="px-6 py-3 rounded-md text-xs font-bold uppercase tracking-wider text-primary neu-btn border border-primary/20 hover:border-transparent">
+                    LET'S TALK
+                </a>
+            </div>
 
-  <main>
-    <!-- WORK / PRODUCTS GALLERY WITH GLASS3D -->
-    <section id="work" class="section-container glass3d">
-      <h2>Selected Work</h2>
-      <p class="section-desc">A snapshot of practical projects I've built, ranging from chemical manufacturing formulations to responsive web and mobile apps.</p>
-      
-      <div class="work-grid">
-        <div class="work-card glass3d">
-          <h3>Industrial Cleaning Formulations</h3>
-          <p>Formulating consumer cleaning goods like liquid hand soaps and tile cleaners following quality and standard guidelines.</p>
+            <!-- Mobile Hamburger Toggle (Three Dashes) -->
+            <button id="mobile-menu-btn" class="lg:hidden w-11 h-11 rounded-lg neu-btn flex flex-col items-center justify-center gap-1.5 text-primary">
+                <span class="w-5 h-0.5 bg-primary rounded-full"></span>
+                <span class="w-5 h-0.5 bg-primary rounded-full"></span>
+                <span class="w-5 h-0.5 bg-primary rounded-full"></span>
+            </button>
         </div>
-        <div class="work-card glass3d">
-          <h3>MASWeather App</h3>
-          <p>A localized weather web app built with React & Tailwind CSS featuring falling rain animations and real-time temporal calculations.</p>
+
+        <!-- Mobile Navigation Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-bodybg border-b border-gray-300 px-6 py-6 transition-all shadow-lg">
+            <div class="flex flex-col gap-4">
+                <a href="#home" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-primary">HOME</a>
+                <a href="#work" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-gray-700 hover:text-primary">WORK</a>
+                <a href="#skills" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-gray-700 hover:text-primary">WHAT I CAN DO</a>
+                <a href="#about" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-gray-700 hover:text-primary">ABOUT ME</a>
+                <a href="#contacts" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-gray-700 hover:text-primary">CONTACTS</a>
+                <div class="pt-4 border-t border-gray-300">
+                    <a href="#contacts" class="w-full block text-center py-3 rounded-md text-xs font-bold uppercase tracking-wider text-primary neu-btn">
+                        LET'S TALK
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="work-card glass3d">
-          <h3>MASChat Mobile App</h3>
-          <p>A cross-platform chat application built using Flutter and Firebase, featuring real-time status triggers and delivery ticks.</p>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- WHAT I CAN DO SECTION WITH GLASS3D -->
-    <section id="skills" class="section-container glass3d">
-      <h2>What I Can Do</h2>
-      <p class="section-desc">My core toolkit combines hands-on science with modern digital problem-solving.</p>
-      
-      <div class="skills-grid-bento">
-        <div class="bento-box glass3d">
-          <h3>01. Chemistry & Manufacturing</h3>
-          <p>Analytical lab testing, mineral sample preparation, acid digestion methodologies, and consumer product formulation.</p>
-        </div>
-        <div class="bento-box glass3d">
-          <h3>02. Software Engineering</h3>
-          <p>Building clean, responsive web apps and cross-platform mobile experiences using JavaScript, React, Flutter, and Tailwind.</p>
-        </div>
-      </div>
-    </section>
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
 
-    <!-- ABOUT ME SECTION WITH GLASS3D -->
-    <section id="about" class="section-container glass3d">
-      <h2>About Me</h2>
-      <div class="about-card glass3d">
-        <h3>Ibrahim Enock Masanja</h3>
-        <p>I'm a chemist and independent developer based in Tanzania. Whether I'm running analytical procedures in a laboratory setting or writing code in VS Code, I love building things that solve real-world problems. When I'm not coding or formulating products, you'll likely catch me streaming football or exploring new tech stacks.</p>
-      </div>
-    </section>
+        <!-- HERO SECTION -->
+        <section id="home" class="py-12 lg:py-20 border-b border-gray-300/60">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <span class="text-xs sm:text-sm font-medium tracking-[3px] text-gray-600 uppercase mb-4 block">
+                        WELCOME TO MY WORLD
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-textdark leading-tight mb-6">
+                        Hi, I’m <span class="text-primary">Ibrahim Enock</span><br>
+                        <span id="typed-text" class="typing-effect text-textdark">a </span>
+                    </h1>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-10 max-w-2xl">
+                        Bridging industrial chemistry formulations and full-stack software development. I combine rigorous analytical laboratory techniques with clean, modern digital experiences.
+                    </p>
 
-    <!-- CONTACTS SECTION WITH GLASS3D -->
-    <section id="contacts" class="section-container contact-section glass3d">
-      <div class="contact-text">
-        <h2>LET'S WORK TOGETHER</h2>
-        <p>Got a project in mind, a collaboration proposal, or just want to connect? Reach out directly!</p>
-        <a href="mailto:ibrahimmasanja69@gmail.com" class="resume-btn">Get in Touch</a>
-      </div>
-      
-      <div class="contact-cards-stack">
-        <a href="mailto:ibrahimmasanja69@gmail.com" class="info-card clickable-card glass3d">
-          <span>📧 Email</span>
-          <strong>ibrahimmasanja69@gmail.com</strong>
-        </a>
-        <a href="https://github.com/ibrahimgthub" target="_blank" rel="noopener noreferrer" class="info-card clickable-card glass3d">
-          <span>🐙 GitHub</span>
-          <strong>github.com/ibrahimgthub</strong>
-        </a>
-        <a href="https://wa.me/255683432249" target="_blank" rel="noopener noreferrer" class="info-card clickable-card glass3d">
-          <span>💬 WhatsApp</span>
-          <strong>+255 683 432 249</strong>
-        </a>
-      </div>
-    </section>
-  </main>
+                    <!-- Socials & Skills Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                        <!-- Find With Me -->
+                        <div>
+                            <span class="text-xs font-semibold tracking-widest text-gray-600 uppercase block mb-5">
+                                FIND WITH ME
+                            </span>
+                            <div class="flex items-center gap-4">
+                                <a href="https://github.com/ibrahimgthub" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-lg neu-btn flex items-center justify-center text-gray-700 text-lg hover:text-white" title="GitHub">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://wa.me/255683432249" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-lg neu-btn flex items-center justify-center text-gray-700 text-lg hover:text-white" title="WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="mailto:ibrahimmasanja69@gmail.com" class="w-14 h-14 rounded-lg neu-btn flex items-center justify-center text-gray-700 text-lg hover:text-white" title="Email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Ibrahim Enock Masanja. All rights reserved.</p>
-  </footer>
+                        <!-- Best Skill On -->
+                        <div>
+                            <span class="text-xs font-semibold tracking-widest text-gray-600 uppercase block mb-5">
+                                TECH STACK
+                            </span>
+                            <div class="flex items-center gap-4">
+                                <span class="w-14 h-14 rounded-lg neu-btn flex items-center justify-center text-cyan-600 font-extrabold text-lg" title="React">
+                                    <i class="fa-brands fa-react"></i>
+                                </span>
+                                <span class="w-14 h-14 rounded-lg neu-btn flex items-center justify-center text-blue-500 font-extrabold text-lg" title="Flutter">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </span>
+                                <span class="w-14 h-14 rounded-lg neu-btn flex items-center justify-center text-amber-600 font-extrabold text-lg" title="Chemistry & Labs">
+                                    <i class="fa-solid fa-flask"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <script src="script.js"></script>
+                <!-- Hero Right Card Image -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div class="w-full max-w-md p-6 rounded-2xl neu-card relative group">
+                        <div class="overflow-hidden rounded-xl bg-gray-200">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Ibrahim Enock Masanja - Developer Workspace" 
+                                 class="w-full h-[450px] object-cover object-center filter grayscale contrast-125 group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WORK / SELECTED WORK SECTION -->
+        <section id="work" class="py-16 sm:py-24 border-b border-gray-300/60">
+            <div class="mb-14 text-center">
+                <span class="text-xs font-semibold tracking-[2px] text-primary uppercase block mb-2">VISIT MY PORTFOLIO</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-textdark">Selected Work</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+                <div class="neu-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between group cursor-pointer">
+                    <div>
+                        <div class="text-primary text-4xl mb-6 card-icon transition-colors">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-textdark mb-4 card-title transition-colors">Industrial Cleaning Formulations</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed card-desc transition-colors">
+                            Formulating consumer cleaning goods like liquid hand soaps and tile cleaners following strict quality benchmarks and standards.
+                        </p>
+                    </div>
+                    <div class="mt-8 text-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-arrow-right text-lg"></i>
+                    </div>
+                </div>
+
+                <div class="neu-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between group cursor-pointer">
+                    <div>
+                        <div class="text-primary text-4xl mb-6 card-icon transition-colors">
+                            <i class="fa-solid fa-cloud-sun-rain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-textdark mb-4 card-title transition-colors">MASWeather App</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed card-desc transition-colors">
+                            A localized weather web app built with React & Tailwind CSS featuring falling rain animations and real-time temporal calculations.
+                        </p>
+                    </div>
+                    <div class="mt-8 text-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-arrow-right text-lg"></i>
+                    </div>
+                </div>
+
+                <div class="neu-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between group cursor-pointer">
+                    <div>
+                        <div class="text-primary text-4xl mb-6 card-icon transition-colors">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-textdark mb-4 card-title transition-colors">MASChat Mobile App</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed card-desc transition-colors">
+                            A cross-platform chat application built using Flutter and Firebase, featuring real-time status triggers and delivery ticks.
+                        </p>
+                    </div>
+                    <div class="mt-8 text-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-arrow-right text-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT I CAN DO SECTION -->
+        <section id="skills" class="py-16 sm:py-24 border-b border-gray-300/60">
+            <div class="mb-14">
+                <span class="text-xs font-semibold tracking-[2px] text-primary uppercase block mb-2">FEATURES & SKILLS</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-textdark">What I Can Do</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+                <div class="neu-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-primary text-4xl mb-6 card-icon transition-colors">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-textdark mb-4 card-title transition-colors">Chemistry & Manufacturing</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed card-desc transition-colors">
+                            Analytical lab testing, mineral sample preparation, acid digestion methodologies, and consumer product formulation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="neu-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="text-primary text-4xl mb-6 card-icon transition-colors">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-textdark mb-4 card-title transition-colors">Software Engineering</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed card-desc transition-colors">
+                            Building clean, responsive web apps and cross-platform mobile experiences using JavaScript, React, Flutter, and Tailwind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-16 sm:py-24 border-b border-gray-300/60">
+            <div class="mb-14">
+                <span class="text-xs font-semibold tracking-[2px] text-primary uppercase block mb-2">BACKGROUND</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-textdark">About Me</h2>
+            </div>
+
+            <div class="neu-card p-8 sm:p-12 rounded-2xl">
+                <h3 class="text-2xl font-bold text-textdark mb-4">Ibrahim Enock Masanja</h3>
+                <p class="text-gray-600 text-base leading-relaxed">
+                    I'm a chemist and independent developer based in Tanzania. Whether I'm running analytical procedures in a laboratory setting or writing code in VS Code, I love building things that solve real-world problems. When I'm not coding or formulating products, you'll likely catch me streaming football or exploring new tech stacks.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACTS SECTION -->
+        <section id="contacts" class="py-16 sm:py-24">
+            <div class="mb-14 text-center">
+                <span class="text-xs font-semibold tracking-[2px] text-primary uppercase block mb-2">CONTACT</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-textdark tracking-tight">Let's Work Together</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <a href="mailto:ibrahimmasanja69@gmail.com" class="neu-card p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer">
+                    <div class="text-primary text-3xl mb-4 card-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <h3 class="text-lg font-bold text-textdark mb-2 card-title">Email Me</h3>
+                    <p class="text-gray-600 text-sm card-desc">ibrahimmasanja69@gmail.com</p>
+                </a>
+
+                <a href="https://github.com/ibrahimgthub" target="_blank" rel="noopener noreferrer" class="neu-card p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer">
+                    <div class="text-primary text-3xl mb-4 card-icon"><i class="fa-brands fa-github"></i></div>
+                    <h3 class="text-lg font-bold text-textdark mb-2 card-title">GitHub Profile</h3>
+                    <p class="text-gray-600 text-sm card-desc">github.com/ibrahimgthub</p>
+                </a>
+
+                <a href="https://wa.me/255683432249" target="_blank" rel="noopener noreferrer" class="neu-card p-8 rounded-2xl flex flex-col items-center text-center group cursor-pointer">
+                    <div class="text-primary text-3xl mb-4 card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3 class="text-lg font-bold text-textdark mb-2 card-title">WhatsApp Chat</h3>
+                    <p class="text-gray-600 text-sm card-desc">+255 683 432 249</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-300 text-center text-gray-600 text-sm">
+        <p>© 2026 Ibrahim Enock Masanja. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Typing text effect for Hero section
+        const phrases = ["Chemist.", "Full-Stack Developer.", "UI/UX Creator."];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typedTextSpan = document.getElementById('typed-text');
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIdx];
+            
+            if (isDeleting) {
+                typedTextSpan.textContent = "a " + currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typedTextSpan.textContent = "a " + currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeEffect, 1000);
+        });
+    </script>
 </body>
 </html>
